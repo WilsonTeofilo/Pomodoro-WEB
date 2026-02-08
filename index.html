@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pomodoro Timer</title>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- CSS principal (começa no coquette) -->
+  <link id="tema" rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1> Pomodoro Timer</h1>
 
-    <!-- Configuração do tempo -->
+  <!-- Botão de trocar tema (fora da div principal) -->
+  <button id="temaBtn" class="tema-btn">🌙</button>
+
+  <!-- Caixa principal -->
+  <div class="container">
+    <h1>🍅 Pomodoro Timer</h1>
+
+    <!-- Configuração -->
     <div class="config">
       <label>Minutos:</label>
       <input type="number" id="minutos" value="25" min="0">
@@ -21,7 +27,7 @@
       <input type="number" id="segundos" value="0" min="0" max="59">
     </div>
 
-    <!-- Mostrador -->
+    <!-- Timer -->
     <div id="timer">25:00</div>
 
     <!-- Botões -->
@@ -32,6 +38,7 @@
     </div>
   </div>
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>

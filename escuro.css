@@ -1,0 +1,159 @@
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+
+  background: #120015;
+  background-image: radial-gradient(#ffb6d9 0.8px, transparent 1px);
+  background-size: 25px 25px;
+
+  color: #fce7f3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container dark glass */
+.container {
+  text-align: center;
+
+  background: rgba(40, 10, 50, 0.75);
+  backdrop-filter: blur(12px);
+
+  padding: 40px;
+  border-radius: 30px;
+  width: 360px;
+
+  border: 3px solid rgba(255, 182, 217, 0.6);
+
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.25);
+}
+
+/* Título */
+h1 {
+  margin-bottom: 25px;
+  font-family: 'Georgia', serif;
+
+  color: #ff8ec7;
+  font-style: italic;
+  letter-spacing: 1px;
+
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+}
+
+/* Inputs config */
+.config {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+label {
+  margin: 0 5px;
+  color: #f9a8d4;
+}
+
+input {
+  width: 60px;
+  padding: 8px;
+  margin: 5px;
+
+  border-radius: 15px;
+  border: 2px solid rgba(255, 182, 217, 0.5);
+
+  text-align: center;
+  font-size: 15px;
+
+  color: #fff;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+input:focus {
+  border-color: #ff8ec7;
+}
+
+/* Timer Pink Glow */
+#timer {
+  font-size: 75px;
+  margin: 20px 0;
+  font-weight: bold;
+
+  color: #ffb6d9;
+
+  text-shadow:
+    0 0 10px rgba(255, 105, 180, 0.8),
+    0 0 20px rgba(255, 182, 217, 0.6);
+}
+
+/* Botões */
+button {
+  padding: 12px 22px;
+  margin: 8px;
+
+  border: none;
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  transition: all 0.3s ease;
+}
+
+/* Botões pastel dark */
+#start {
+  background: #ff8ec7;
+  color: #120015;
+}
+
+#pause {
+  background: #fbcfe8;
+  color: #3b003d;
+}
+
+#reset {
+  background: #c084fc;
+  color: #120015;
+}
+
+/* Hover glow */
+button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(255, 182, 217, 0.4);
+
+  opacity: 0.95;
+}
+
+/* Botão de tema */
+.tema-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  font-size: 22px;
+  padding: 10px 15px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(255, 182, 217, 0.2);
+  color: #ffb6d9;
+
+  cursor: pointer;
+
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.35);
+
+  transition: 0.3s;
+}
+
+.tema-btn:hover {
+  background: rgba(255, 182, 217, 0.35);
+}

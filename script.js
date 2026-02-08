@@ -1,13 +1,12 @@
 
-// Tempo em segundos
+// Tempo total em segundos
 let tempo = 0;
 
-// Intervalo do setInterval
+// Controle do intervalo
 let intervalo = null;
 
-// -------------------------------
 // Pegando elementos do HTML
-// -------------------------------
+
 const timer = document.getElementById("timer");
 
 const minutosInput = document.getElementById("minutos");
@@ -17,23 +16,30 @@ const startBtn = document.getElementById("start");
 const pauseBtn = document.getElementById("pause");
 const resetBtn = document.getElementById("reset");
 
-// -------------------------------
-// Som de alarme (arquivo local)
-// -------------------------------
+// Botão e link de tema
+const temaBtn = document.getElementById("temaBtn");
+const temaLink = document.getElementById("tema");
+
+// Controle do tema
+let modoEscuro = false;
+
+
+//  Som do alarme (arquivo local)
+
 function tocarSom() {
   const audio = new Audio("assets/AAAAI.mp3");
   audio.volume = 0.7;
   audio.play();
 }
 
-// -------------------------------
+
 // Atualiza o timer na tela
-// -------------------------------
+
 function atualizarTela() {
   let minutos = Math.floor(tempo / 60);
   let segundos = tempo % 60;
 
-  // Coloca zero na frente
+
   if (segundos < 10) {
     segundos = "0" + segundos;
   }
@@ -41,14 +47,12 @@ function atualizarTela() {
   timer.innerText = `${minutos}:${segundos}`;
 }
 
-// -------------------------------
-// Define o tempo com base nos inputs
-// -------------------------------
-function definirTempoInicial() {
+
+function definirTempo() {
   let min = parseInt(minutosInput.value) || 0;
   let seg = parseInt(segundosInput.value) || 0;
 
-  // Limita segundos no máximo 59
+  // Limita segundos até 59
   if (seg > 59) seg = 59;
 
   tempo = (min * 60) + seg;
@@ -56,17 +60,17 @@ function definirTempoInicial() {
   atualizarTela();
 }
 
-// -------------------------------
-// Iniciar contador
-// -------------------------------
+
+//  Iniciar Pomodoro
+
 function iniciar() {
-  // Evita criar vários intervalos
+  // Impede vários intervalos
   if (intervalo !== null) return;
 
-  // Define o tempo antes de começar
-  definirTempoInicial();
+  // Define tempo antes de iniciar
+  definirTempo();
 
-  // Se tempo for zero, não inicia
+  // Se for zero, não começa
   if (tempo <= 0) {
     alert("Coloque um tempo válido!");
     return;
@@ -86,32 +90,44 @@ function iniciar() {
   }, 1000);
 }
 
-// -------------------------------
-// Pausar contador
-// -------------------------------
+
+//  Pausar
+
 function pausar() {
   clearInterval(intervalo);
   intervalo = null;
 }
 
-// -------------------------------
-// Resetar contador
-// -------------------------------
+//  Resetar
+
 function resetar() {
   clearInterval(intervalo);
   intervalo = null;
 
-  definirTempoInicial();
+  definirTempo();
 }
 
-// -------------------------------
-// Eventos dos botões
-// -------------------------------
+//  Trocar Tema
+
+function trocarTema() {
+  if (modoEscuro) {
+    // Volta pro claro 
+    temaLink.href = "style.css";
+    temaBtn.innerText = "🌙";
+    modoEscuro = false;
+  } else {
+    // Vai pro escuro
+    temaLink.href = "escuro.css";
+    temaBtn.innerText = "☀️";
+    modoEscuro = true;
+  }
+}
+
+
 startBtn.addEventListener("click", iniciar);
 pauseBtn.addEventListener("click", pausar);
 resetBtn.addEventListener("click", resetar);
 
-// -------------------------------
-// Timer começa atualizado na tela
-// -------------------------------
-definirTempoInicial();
+temaBtn.addEventListener("click", trocarTema);
+
+definirTempo();
